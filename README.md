@@ -1,2 +1,2 @@
 # R Studio
-Take a look at my R Syntax!
+Take a look at some R Syntax!

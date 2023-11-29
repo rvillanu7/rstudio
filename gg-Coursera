@@ -1,0 +1,27 @@
+# Using ggplot and adjusting aesthetic, and facet wraps
+
+install.packages("tidyverse")
+library(tidyverse)
+library(ggplot2)
+
+#load the data set#
+install.packages("palmerpenguins")
+library(palmerpenguins)
+
+#black and white plot, aes is aesthetic
+ggplot(data = penguins) + 
+  geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g))
+
+#Add color and facet
+ggplot(data = penguins) + 
+  geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g, color = species)) +
+  facet_wrap(~species)
+
+#facet_grid(<P1~P2>)
+#for title, subitle, and caption, and annotate
+ggplot(data = penguins) + 
+  geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g, color = species)) +
+  labs(title = "Palmer Penguins: Body Mass vs. Flipper Length", subtitle = "Sample of Three Penguin Species", 
+       caption = "Data collected by Dr. Kisten Gorman") +
+  annotate("text", x=220, y=3500, label= "The Gentoos are the largest!", color = "purple", fontface = "italic", 
+           size = 4.5, angle = 45)
